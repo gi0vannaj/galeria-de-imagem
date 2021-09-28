@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    /* background-color: aqua; */
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    display: flex; 
+}
+
+main{
+    /* background-color: blueviolet; */
+     flex-grow: 1; /*//permite esticar oo elemneto ao maximo ate a borda */
+}
+
+.galeria-conteiner{
+    display: flex;
+    gap: 15px; /*/ permite dar espaço entre os elementos*/
+    flex-wrap: wrap;
+    padding: 0 15px; /* em uma unica linha definimos lado esquerdo e cima, lado direito e baixo*/
+}
+
+.galeria-itens{
+    width: 340px;
+    height: 240px;
+    background-color: blue;
+    flex-grow: 1;
+    filter: grayscale(100%);
+    
+}
+
+.galeria-itens:hover{
+    transform: scale(120%);
+    z-index: 10 ;
+    filter: grayscale(0%);
+}
+
+
+.galeria-itens img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*estica ao maximo para manter um padrao e a imagem nao ficar distorcida e com o objto position direcionamos onde cortar*/
+    
+    transition: all .5s linear;
+}
+
+.galeria-itens img:hover {
+        
+        transform: scale(130%);
+} 
+
+.slide{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    z-index: -999;
+    opacity: 0;
+    transition: all .5s linear;
+    
+}
+
+.slide .imagem-conteiner{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.slide .imagem-conteiner img{
+    width: 100%;
+    height: 100%;
+}
+
+.slide .fechar{
+    top: 0;
+    right: 0;
+    position: absolute;
+    background-color: black;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    transition: all .5s linear;
+    text-decoration:nome;
+    z-index: 3; /* traz o elemento para frente*/
+    transition: all .5s linear;
+    
+
+
+}
+
+.slide .fechar:hover{
+    background-color:white;
+    color: rgb(8, 8, 8);
+}
+
+.slide .navegacao{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    background-color: black;
+    text-decoration: none;
+    opacity: 0;
+    transition: all .5s linear;
+    
+}
+
+.slide .navegacao:hover{
+    /* background-color: #fff; */
+    opacity: 1;
+}
+
+.slide .anterior{
+    left: 0;
+}
+
+.slide .proximo{
+    right: 0;
+}
+
+.slide:target{
+    z-index: 999;
+    opacity: 1;
+}
+
+footer{
+    /* background-color: burlywood; */
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
